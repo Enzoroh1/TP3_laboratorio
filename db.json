@@ -1,0 +1,22 @@
+{
+  "contactos":[
+      {
+          "id":1,
+          "nombreContacto": "Enzo",
+          "ApellidoContacto":"Roh",
+          "emailContacto":"enzoroh@gmail.com"
+      },
+      {
+          "id":2,
+          "nombreContacto": "Armando",
+          "ApellidoContacto":"Paredes",
+          "emailContacto":"armandoparedes@gmail.com"
+      },
+      {
+          "id":3,
+          "nombreContacto": "Esteban",
+          "ApellidoContacto":"Quito",
+          "emailContacto":"estabanquito@gmail.com"
+      }
+  ]
+}

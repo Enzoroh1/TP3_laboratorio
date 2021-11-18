@@ -4,10 +4,7 @@ import AplicacionCrudTable from "./AplicacionCrudTable";
 
 
 
-const inicialDb =[
-    {
-
-    },
+const inicialDb = [
     {
         id:1,
         nombreContacto: "Enzo",

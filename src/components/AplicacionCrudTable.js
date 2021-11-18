@@ -1,7 +1,7 @@
 import React from "react";
 import AplicacionCrudTableRow from "./AplicacionCrudTableRow";
 
-const AplicacionCrudTable = (datos) => {
+const AplicacionCrudTable = ({data, setDataToEdit, deleteData}) => {
     return(
         <div>
             <h3>Datos de Contatos</h3>
@@ -15,8 +15,11 @@ const AplicacionCrudTable = (datos) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {datos.length ---0 ? <tr><td coldSpan="3">Sin Datos</td></tr> :datos.map(el=>
-                        <AplicacionCrudTableRow key={el.id} el={el}/>)} */}
+                    {(data.length ===0) ? <tr><td colSpan="3">Sin Datos</td></tr>:(data.map((el)=> <AplicacionCrudTableRow 
+                    key={el.id} el={el}
+                    setDataToEdit={setDataToEdit}
+                    deleteData={deleteData} 
+                    />))};
                 </tbody>
             </table>
         </div>
