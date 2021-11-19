@@ -1,6 +1,6 @@
 import React from "react";
 
-const AplicacionCrudTableRow = ({el, setDataToEdit,DeleteData})=>{//destructuracion del obejeto
+const AplicacionCrudTableRow = ({el, setDataToEdit,deleteData})=>{//destructuracion del obejeto
 
     let {nombreContacto,apellidoContacto,emailContacto,id} = el;
     return(
@@ -10,7 +10,7 @@ const AplicacionCrudTableRow = ({el, setDataToEdit,DeleteData})=>{//destructurac
             <td>{emailContacto}</td>
             <td>
                 <button onClick={()=>setDataToEdit(el)}>Editar</button>
-                <button onClick={()=>DeleteData(id)}>Eliminar</button>
+                <button onClick={()=>deleteData(id)}>Eliminar</button>
             </td>
 
         </tr>

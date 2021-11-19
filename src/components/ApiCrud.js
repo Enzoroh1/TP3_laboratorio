@@ -40,7 +40,7 @@ const ApiCrud = () => {
     };
     const updateData =(data)=>{
         let endpoint =`${url}/${data.id}`;
-        //console.log(endpoint);
+        console.log(endpoint);
 
         let options={
             body:data,
@@ -60,31 +60,56 @@ const ApiCrud = () => {
         //trae la base de datos como esta
 
     };
-    //let newData= db.map(el=>el.id ===data.id? data:el);
-    //setDb(newData);
+    // let newData= db.map(el=>el.id ===dato.id? data:el);
+    // setDb(newData);
 
-    const deleteData =(id)=>{
-        let isDelete = window.confirm(`"Esta seguro que quiere eliminar el ${id}"`);
-        if(isDelete){
-            let newData = db.filter((el)=>el.id!==id);
+
+    const deleteData = (id) => {
+      let isDelete = window.confirm(`¿Estás seguro de eliminar el registro con el id '${id}'?`);
+      if (isDelete) {
+          let endpoint = `${url}/${id}`;
+          let options = {
+          headers: { "content-type": "application/json" },
+        };
+  
+        api.del(endpoint, options).then((res) => {
+          //console.log(res);
+          if (!res.err) {
+            let newData = db.filter((el) => el.id !== id);
             setDb(newData);
-        }else{
-            return;
-        }
-    }
+          } else {
+            setError(res);
+          }
+        });
+      } else {
+        return;
+      }
+    };
+//     const deleteData = (id) => {
+//         let isDelete = window.confirm(
+//       `¿Estás seguro de eliminar el registro con el id '${id}'?`
+//     );
+
+//     if (isDelete) {
+//       let newData = db.filter((el)=>el.id!==id);
+//       setDb(newData);
+//       }else{
+//         return;
+//     };
+//   }
     return(
         <div>
             <h2> CRUD API </h2>
             <AplicacionCrudForm
             createData = {createData}
             updateData = {updateData}
-            dataToEdit={dataToEdit}
+            dataToEdit = {dataToEdit}
             setDataToEdit={setDataToEdit}
             />
             {error&& <MessageApi/>}
             <AplicacionCrudTable
             data={db}
-            daleteData={deleteData}//funcion que actualiza la variable, deleteData
+            deleteData={deleteData}//funcion que actualiza la variable, deleteData
             setDataToEdit={setDataToEdit}//funcion que actualiza la variable, setDataToEdit
             />
 
